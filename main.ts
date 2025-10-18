@@ -1,4 +1,5 @@
-input.onButtonPressed(Button.A, function () {
+input.onButtonPressed(Button.A, function on_button_pressed_a() {
+    
     basic.showLeds(`
         . . . . .
         . # # # .
@@ -11,12 +12,13 @@ input.onButtonPressed(Button.A, function () {
     basic.pause(200)
     basic.clearScreen()
 })
-input.onButtonPressed(Button.AB, function () {
+input.onButtonPressed(Button.AB, function on_button_pressed_ab() {
+    
     radio.sendString(texto)
     texto = ""
     music.play(music.createSoundExpression(WaveShape.Sine, 1, 5000, 255, 0, 200, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
 })
-radio.onReceivedString(function (receivedString) {
+radio.onReceivedString(function on_received_string(receivedString: string) {
     music.play(music.createSoundExpression(WaveShape.Sine, 5000, 1, 255, 0, 200, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
     basic.showString(receivedString)
     if (receivedString == ".-") {
@@ -72,10 +74,12 @@ radio.onReceivedString(function (receivedString) {
     } else if (receivedString == "--..") {
         basic.showString("Z")
     }
+    
     basic.pause(200)
     basic.clearScreen()
 })
-input.onButtonPressed(Button.B, function () {
+input.onButtonPressed(Button.B, function on_button_pressed_b() {
+    
     basic.showLeds(`
         . . . . .
         . . . . .
